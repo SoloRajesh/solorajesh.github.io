@@ -374,9 +374,11 @@ let isSocialViewActive = true;
 
 // --- Initialization ---
 document.addEventListener("DOMContentLoaded", () => {
+  document.documentElement.classList.add("dark");
+  document.documentElement.classList.remove("light");
+  localStorage.removeItem("theme");
   initCustomCursor();
   initParticlesCanvas();
-  initTheme();
   initTypingEffect();
   initScrollReveal();
   initCardSpotlight();
@@ -530,9 +532,8 @@ function initParticlesCanvas() {
   function animate() {
     ctx.clearRect(0, 0, width, height);
 
-    const isDark = document.documentElement.classList.contains("dark");
-    const particleColor = isDark ? "56, 189, 248" : "2, 132, 199";
-    const lineBaseAlpha = isDark ? 0.12 : 0.08;
+    const particleColor = "56, 189, 248";
+    const lineBaseAlpha = 0.12;
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
@@ -971,44 +972,7 @@ function initSkillsSocialNetwork() {
   }
 }
 
-// --- Theme Toggler ---
-function initTheme() {
-  const themeToggleBtn = document.getElementById("theme-toggle-btn");
-  const themeIcon = document.getElementById("theme-icon");
 
-  const savedTheme = localStorage.getItem("theme");
-  const systemPrefersDark = window.matchMedia(
-    "(prefers-color-scheme: dark)",
-  ).matches;
-
-  if (savedTheme === "light" || (!savedTheme && !systemPrefersDark)) {
-    document.documentElement.classList.remove("dark");
-    document.documentElement.classList.add("light");
-    if (themeIcon) themeIcon.className = "fas fa-moon";
-  } else {
-    document.documentElement.classList.add("dark");
-    document.documentElement.classList.remove("light");
-    if (themeIcon) themeIcon.className = "fas fa-sun";
-  }
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener("click", () => {
-      if (document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.remove("dark");
-        document.documentElement.classList.add("light");
-        localStorage.setItem("theme", "light");
-        if (themeIcon) themeIcon.className = "fas fa-moon";
-        showToast("Switched to Light Mode", "info");
-      } else {
-        document.documentElement.classList.add("dark");
-        document.documentElement.classList.remove("light");
-        localStorage.setItem("theme", "dark");
-        if (themeIcon) themeIcon.className = "fas fa-sun";
-        showToast("Switched to Dark Mode", "info");
-      }
-    });
-  }
-}
 
 // --- Typing Effect ---
 function initTypingEffect() {
