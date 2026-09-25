@@ -67,13 +67,6 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.light .glass-header {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
 /* Premium Card Design & Cursor Spotlight Effect */
 .glass-card {
   position: relative;
@@ -88,13 +81,6 @@ h1, h2, h3, h4, h5, h6 {
 .glass-card:hover {
   border-color: rgba(56, 189, 248, 0.4);
   box-shadow: 0 16px 36px -12px rgba(14, 165, 233, 0.22), 0 0 20px rgba(56, 189, 248, 0.12);
-}
-
-.light .glass-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  background-image: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(2, 132, 199, 0.08), transparent 40%);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
 /* Spatial 3D Structure Classes */
@@ -344,17 +330,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #0f172a;
 }
 
-.light ::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
 ::-webkit-scrollbar-thumb {
   background: #334155;
-  border-radius: 4px;
-}
-
-.light ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
   border-radius: 4px;
 }
 
